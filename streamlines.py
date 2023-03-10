@@ -71,10 +71,10 @@ def streamlines(u, limits= np.array([[-10,-10],[10,10]]), dt= 0.01):
 
 # defining the velocity field
 
-a = 1
+a = 5
 b = 1
 
 def u(x):
-    return np.array([(b*x[0]-a*x[1])*(np.linalg.norm(x)),(a*x[0]+b*x[1])*(np.linalg.norm(x))])
+    return np.array([1+(a/np.linalg.norm(x))**2+0.02*x[0]*np.linalg.norm(x)**(-3), 2*a*a*x[0]*np.linalg.norm(x)**(-3)])
 
 streamlines(u)
